@@ -58,11 +58,37 @@ button:not(:last-child) {
 .messages {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
     width: 50%;
     max-width: 450px;
   
 }
+.container-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.btn-reiniciar button{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(255, 88, 88);
+    border: 2px solid  rgb(250, 250, 67);
+    border-radius: 50px;
+    padding: 50x, 20px;
+    font-weight: 500;
+}
+.btn-reiniciar button:hover {
+    width: 70px;
+    height: 70px;
+    background-color:  rgb(250, 250, 67);
+    border: 2px solid   rgb(255, 88, 88);
+    border-radius: 50px;
+    padding: 50x, 20px;
+    font-weight: bold;
+}
+
+
 .messages p {
     width: 100%;
     font-size: 1.6rem;

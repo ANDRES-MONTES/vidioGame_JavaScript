@@ -8,6 +8,7 @@ const hearts = document.querySelector('#lives')
 const time = document.querySelector('#time')
 const bestTime = document.querySelector('#bestTime')
 const presult = document.querySelector('#result')
+const reiniciar = document.querySelector('#reiniciar')
 
 let canvasSize
 let elemetsSize
@@ -18,6 +19,7 @@ let timePlayer
 let timeIntervale
 let formattedTime
 let recordBestTime
+let enemyCollision
 
 const playerPositions = {
     x : undefined,
@@ -43,7 +45,7 @@ function setCanvaSize () {
         canvasSize = window.innerHeight * 0.75
     }
 
-    canvasSize = Number(canvasSize.toFixed(0))
+    // canvasSize = Number(canvasSize.toFixed(0))
 
     canvas.setAttribute('width', canvasSize)
     canvas.setAttribute('height', canvasSize)
@@ -114,14 +116,14 @@ function movePlayer (){
         levelWin()
     }
 
-    const enemyCollision = enemyPositions.find((enemy) => {
+     enemyCollision = enemyPositions.find((enemy) => {
         const enemyColisionX = enemy.x.toFixed(3) == playerPositions.x.toFixed(3)
         const enemyColisiony = enemy.y.toFixed(3) == playerPositions.y.toFixed(3)
         return enemyColisionX && enemyColisiony
     })
 
     if (enemyCollision) {
-        repeatLevel ()
+        repeatLevel()
     }
 
 }
@@ -143,9 +145,10 @@ function repeatLevel(){
 
     playerPositions.x = undefined
     playerPositions.y = undefined
+
+   
     startGame()
 }
-
 
 function gameWin() {
     clearInterval(timeIntervale)
@@ -259,6 +262,11 @@ function moveDown() {
 
 }
 
+reiniciar.addEventListener('click', againPage)
+
+function againPage() {
+    location.reload()
+}
 
 
 
